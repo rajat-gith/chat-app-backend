@@ -42,6 +42,10 @@ function startServer() {
 
   app.use("/", routes);
 
+  app.get("/", (req, res) => {
+    res.send("<h1>Backend for Chat App</h1>");
+  });
+
   const wss = new ws.Server({ server });
 
   wss.on("connection", (connection, req) => {

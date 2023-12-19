@@ -1,13 +1,13 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "repository": "https://github.com/rajat-gith/chat-app-backend.git",
   "author": "rajat-gith <rajatnayak1582002@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "start-dev": "nodemon index.js"
+    "start": "node app.js",
+    "start-dev": "nodemon app.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
