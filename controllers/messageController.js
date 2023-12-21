@@ -30,6 +30,20 @@ async function getPeople(req, res) {
   }
 }
 
+async function getUserDataFromRequest(req) {
+  return new Promise((resolve, reject) => {
+    const token = req.cookies?.token;
+    if (token) {
+      jwt.verify(token, jwtSecret, {}, (err, userData) => {
+        if (err) throw err;
+        resolve(userData);
+      });
+    } else {
+      reject("no token");
+    }
+  });
+}
+
 async function getProfile(req, res) {
   try {
     const userData = await getUserDataFromRequest(req);

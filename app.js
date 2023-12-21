@@ -10,14 +10,8 @@ const routes = require("./routes");
 
 dotenv.config();
 
-// Use native promises (use the global Promise object)
-mongoose.Promise = global.Promise;
-
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URL)
   .then(() => {
     console.log("Connected to MongoDB");
     startServer();

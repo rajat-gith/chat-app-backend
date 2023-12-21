@@ -1,12 +1,17 @@
+const dotenv = require("dotenv");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
+dotenv.config();
 
 const jwtSecret = process.env.JWT_SECRET;
 const bcryptSalt = bcrypt.genSaltSync(10);
 
+console.log(jwtSecret);
+
 async function login(req, res) {
   try {
+    console.log(req.body);
     const { username, password } = req.body;
     const foundUser = await User.findOne({ username });
 
@@ -72,7 +77,7 @@ async function register(req, res) {
 }
 
 module.exports = {
-  login,
+  login,  
   logout,
   register,
 };
